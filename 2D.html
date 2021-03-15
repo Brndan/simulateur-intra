@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="fr">
+    
+    <head>
+        <title>Calculateur de barème mutation intra-académique</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    </head>
+    
+    <body>
+        <script src="2D.js"></script>
+        <link rel="stylesheet" type="text/css" href="simulateur2.css">
+        
+         <h1 style="color:#ff0305;">Calculateur de barème mutation intra-académique<img src="red.png" alt="SUD éducation Paris" style="padding-left:10px;"></h1>
+        
+        <h2>Partie commune</h2>
+     
+<div class="blocSelection">
+   <label for="statut">Sélectionnez votre statut</label>
+       <div class="tooltip"><img src="infobulle.png" class="tooltipicon"><div class="tooltiptext">
+       Stagiaire ex autre corps: Stagiaire précédemment titulaire d'un autre corps de personnels enseignant, d’éducation et d’orientation. 
+       </div></div>
+   <div class="menuSelection">
+      <select id="statut" onchange="showFormItemWhen('menu_anciennete_poste','statut',['titulaire','stagiaire_ex_autre_corps']);
+                                    showFormItemWhen('menu_carte_scolaire','statut',['titulaire']);
+                                    showFormItemWhen('menu_situation_TZR','statut',['titulaire']);
+                                    showFormItemWhen('menu_sortie_FLS','statut',['titulaire']);
+                                    showFormItemWhen('menu_sortie_disp','statut',['titulaire']);
+                                    showFormItemWhen('menu_education_prioritaire','statut',['titulaire']);
+                                    showFormItemWhen('menu_anciennete_paris','statut',['titulaire']);
+                                    showFormItemWhen('menu_entree_metier','statut',['stagiaire']);
+                                    showFormItemWhen('menu_stagiaire_ex_autre','statut',['stagiaire_ex_autre_corps']);
+                                    showFormItemWhen('menu_contractuel_actif_avant_stage','statut',['stagiaire_ex_contractuel']);">
+         <option value="rien" selected>Choisissez…</option>
+         <option value="titulaire">Titulaire</option>
+         <option value="stagiaire">Stagiaire</option>
+         <option value="stagiaire_ex_contractuel">Stagiaire ex-contractuel·le</option>
+         <option value="stagiaire_ex_autre_corps">Stagiaire ex autre corps</option>
+      </select>
+   </div>
+</div>
+<br/>
+
+<div class="blocSelection" id="menu_anciennete_poste">
+   <label for="menu_anciennete_poste">Sélectionnez votre ancienneté</label>
+   <div class="tooltip"><img src="infobulle.png" class="tooltipicon"><div class="tooltiptext">
+        Votre ancienneté en années au 31/08/2020, dans le poste actuel ou dans le dernier occupé si disponibilité, congé, ATP, ou si vous êtes stagiaire précédemment titulaire d’un autre corps de personnel enseignant, d’éducation et d’orientation. 
+   </div></div>
+   <div class="menuSelection">
+      <select id="anciennete_poste">
+         <option value="0" selected>0</option>
+         <option value="1">1</option>
+         <option value="2">2</option>
+         <option value="3">3</option>
+         <option value="4">4</option>
+         <option value="5">5</option>
+         <option value="6">6</option>
+         <option value="7">7</option>
+         <option value="8">8</option>
+         <option value="9">9</option>
+         <option value="10">10</option>
+         <option value="11">11</option>
+         <option value="12">12</option>
+         <option value="13">13</option>
+         <option value="14">14</option>
+         <option value="15">15</option>
+         <option value="16">16</option>
+         <option value="17">17</option>
+         <option value="18">18</option>
+         <option value="19">19</option>
+         <option value="20">20</option>
+         <option value="21">21</option>
+         <option value="22">22</option>
+         <option value="23">23</option>
+         <option value="24">24</option>
+         <option value="25">25</option>
+         <option value="26">26</option>
+         <option value="27">27</option>
+         <option value="28">28</option>
+         <option value="29">29</option>
+         <option value="30">30</option>
+         <option value="31">31</option>
+         <option value="32">32</option>
+         <option value="33">33</option>
+         <option value="34">34</option>
+         <option value="35">35</option>
+         <option value="36">36</option>
+         <option value="37">37</option>
+         <option value="38">38</option>
+         <option value="39">39</option>
+         <option value="40">40</option>
+      </select>
+   </div>
+</div><br/>
+
+<div class="blocSelection" id="menu_classe">
+   <label for="menu_classe">Sélectionnez votre classe</label>
+   <div class="menuSelection">
+      <select id="classe">
+         <option value="normale" selected>Classe normale</option>
+         <option value="hc_certifies">Hors cl. certifié⋅e-PLP-PEPS-CPE-PsyÉN</option>
+         <option value="hc_agreges">Hors cl. agrégé·es</option>
+         <option value="exceptionnel">Classe exceptionnelle</option>
+      </select>
+   </div>
+</div><br/>
+
+<div class="blocSelection" id="menu_echelon">
+   <label for="menu_echelon">Sélectionnez votre échelon</label>
+   <div class="tooltip"><img src="infobulle.png" class="tooltipicon"><div class="tooltiptext">
+        Echelon au 31/08/2020 (au 01/09/2019 si entrée dans le métier et reclassement).
+   </div></div>
+   <div class="menuSelection">
+      <select id="echelon">
+         <option value="1" selected>Échelon 1</option>
+         <option value="2">Échelon 2</option>
+         <option value="3">Échelon 3</option>
+         <option value="4">Échelon 4</option>
+         <option value="5">Échelon 5</option>
+         <option value="6">Échelon 6</option>
+         <option value="7">Échelon 7</option>
+         <option value="8">Échelon 8</option>
+         <option value="9">Échelon 9</option>
+         <option value="10">Échelon 10</option>
+         <option value="11">Échelon 11</option>
+      </select>
+   </div>
+</div>
+        
+        <h2>Situation familiale</h2>
+        
+<div class="blocSelection" id="menu_enfants">
+   <label for="menu_enfants">Nombre d'enfants à charge (ou à naître)</label>
+   <div class="tooltip"><img src="infobulle.png" class="tooltipicon"><div class="tooltiptext">
+        Enfants de moins de 18 ans au 31/08/2020.<br/>
+        Vœu COM tout poste (ou GEO tout poste pour les stagiaires ou les néo titulaires l’ayant formulé en rang 1 et bénéficiant d’une bonification stagiaire, et pour les PLP) correspondant à la résidence de l'enfant.
+   </div></div>
+   <div class="menuSelection">
+      <select id="enfants">
+         <option value=0 selected>0</option>
+         <option value=1>1</option>
+         <option value=2>2</option>
+         <option value=3>3 ou plus</option>
+      </select>
+   </div>
+</div>
+        
+        <h2>Situation personnelle et administrative</h2>
+        
+<div id="menu_entree_metier">
+    <div class="blocSelection">
+          <input type="checkbox" id="entree_metier">
+          <label for="entree_metier">Bonification d'entrée dans le métier</label>
+          <div class="tooltip"><img src="infobulle.png" class="tooltipicon"><div class="tooltiptext">
+                Bonification de 10 points sur le premier vœu pour les stagiaires 2019-2020, 2018-2019 et 2017-2018 si la bonification a été utilisée à l’inter ou si l'on ne participe qu’à la phase intra-académique.
+          </div></div>
+    </div></div>
+<div id="menu_contractuel_actif_avant_stage">
+    <div class="blocSelection">
+       <input type="checkbox" id="contractuel_actif_avant_stage">
+       <label for="contractuel_actif_avant_stage">Stagiaire ex-contractuel·le : justifiant d'un an équivalent temps plein dans les deux<br/>dernières années précédant le stage
+        </label>
+        <div class="tooltip"><img src="infobulle.png" class="tooltipicon"><div class="tooltiptext">
+            Stagiaires Ex-contractuel·les (enseignant·es 1er et 2nd degré, CPE, COP/PsyEN, MA garantis d’emplois, EAP, AESH, cont. CFA et AED)<br/>
+            Conditions : justifier d'au moins un an équivalent temps plein au cours des 2 dernières années scolaires précédent le stage (sauf EAP, justifier de 2 ans de service). Applicable si la bonification a été prise en compte lors du mouvement inter-académique.
+         </div></div>
+    </div>
+</div>
+<div id="menu_stagiaire_ex_autre">
+    <div class="blocSelection">
+       <input type="checkbox" id="stagiaire_ex_autre">
+       <label for="stagiaire_ex_autre">Stagiaires précédemment titulaires d'un autre corps</label>
+        <div class="tooltip"><img src="infobulle.png" class="tooltipicon"><div class="tooltiptext">
+            Stagiaires précédemment titulaires d'un corps autre que ceux des personnels enseignants des 1er et 2nd degrés, d'éducation et de psychologues de l'éducation nationale.<br/>
+            Applicable si la bonification a été prise en compte lors du mouvement inter-académique.
+         </div></div>
+    </div>
+</div><br/>
+        
+<div class="blocSelection" id="menu_situation_medicale">
+   <label for="menu_situation_medicale">Situation médicale / handicap</label>
+     <div class="tooltip"><img src="infobulle.png" class="tooltipicon"><div class="tooltiptext">
+        1200 pts pour les vœux définis dans le cadre des préconisations du DRH. Cette procédure concerne les personnels titulaires, stagiaires, leur conjoint bénéficiaire de l’obligation d’emploi ainsi que la situation d’un enfant reconnu handicapé.<br/>
+        60 pts pour les personnels titulaires ou stagiaires ayant personnellement la reconnaissance de la qualité de travailleur handicapé (RQTH). Non cumulable avec les 1200 pts.<br/>
+     </div></div>
+   <div class="menuSelection">
+      <select id="situation_medicale">
+         <option value="none" selected>Sans objet</option>
+         <option value="preconisations_drh">Préconisations du DRH</option>
+         <option value="rqth">RQTH</option>
+      </select>
+    </div>
+</div><br/>
+
+<div id="menu_education_prioritaire">
+<div class="blocSelection">
+   <label for="menu_education_prioritaire">Affectation REP+, REP, APV 5 ans et plus</label>
+     <div class="tooltip"><img src="infobulle.png" class="tooltipicon"><div class="tooltiptext">
+        Affectation en éducation prioritaire: ancienneté au 31 août 2020. Vérifier la circulaire.
+     </div></div>
+   <div class="menuSelection">
+      <select id="education_prioritaire">
+        <option value="none" selected>Sans objet</option>
+        <option value="rep+">REP+ / APV 5ans et +</option>
+        <option value="rep">REP 5ans et +</option>
+      </select>
+   </div>
+</div></div><br/>
+        
+<div id="menu_carte_scolaire">
+    <div class="blocSelection">
+   <input type="checkbox" id="carte_scolaire">    
+   <label for="carte_scolaire">Mesure de carte scolaire</label>
+        <div class="tooltip"><img src="infobulle.png" class="tooltipicon"><div class="tooltiptext">
+        Vœux spécifiques uniquement, en fonction de la situation. Vérifier la circulaire.
+            </div></div></div>
+</div><br/>
+        
+<div class="blocSelection" id="menu_reconversion">
+   <input type="checkbox" id="reconversion">    
+   <label for="reconversion">Reconversion</label>
+     <div class="tooltip"><img src="infobulle.png" class="tooltipicon"><div class="tooltiptext">
+        Cette bonification est accordée pour une 1ère mutation dans la nouvelle discipline.<br/>Elle n’est pas valable dans le cadre des listes d’aptitude et des intégrations après détachement. 
+     </div></div>
+</div><br/>
+        
+<div class="blocSelection" id="menu_agregees_lycee">
+   <input type="checkbox" id="agregees_lycee">    
+   <label for="agregees_lycee">Agrégé·es souhaitant une affectation en lycée</label>
+     <div class="tooltip"><img src="infobulle.png" class="tooltipicon"><div class="tooltiptext">
+        Valable uniquement sur les vœux lycée. 
+     </div></div>
+</div><br/>
+        
+<div id="menu_situation_TZR">
+   <div class="blocSelection">
+   <label for="menu_situation_TZR">Stabilisation sur poste fixe des TZR</label>
+     <div class="tooltip"><img src="infobulle.png" class="tooltipicon"><div class="tooltiptext">
+        Titulaire de la zone de remplacement souhaitant une stabilisation sur un poste fixe en établissement.
+     </div></div>
+   <div class="menuSelection">
+      <select id="situation_TZR">
+        <option value="none" selected>Sans objet</option>
+        <option value="3">A partir de 3 ans (COM)</option>
+        <option value="1a4">De 1 à 4 ans (GEO ou ACA)</option>
+        <option value="5">5 ans et plus (GEO ou ACA)</option>
+      </select>
+   </div>
+</div></div><br/>
+        
+<div class="blocSelection" id="menu_TZR_REP">
+   <input type="checkbox" id="TZR_REP">    
+   <label for="TZR_REP">Stabilisation en REP des TZR en AFA et des stagiaires</label>
+     <div class="tooltip"><img src="infobulle.png" class="tooltipicon"><div class="tooltiptext">
+        TZR en poste à l'année ou au moins 6 mois, ou stagiaire, dans l'établissement demandé. 
+     </div></div>
+</div><br/>
+    
+<div id="menu_sortie_FLS">
+<div class="blocSelection">
+   <input type="checkbox" id="sortie_FLS">
+   <label for="sortie_FLS">Bonification de sortie FLS 5 ans et plus</label>
+     <div class="tooltip"><img src="infobulle.png" class="tooltipicon"><div class="tooltiptext">
+        Depuis le 01/09/2012, enseigner le FLS pour tout son service pendant 5 ans, titulaire d’un poste à titre définitif ou TZR à l’année.<br/>Pièce justificative à joindre : attestation du CASNAV.
+     </div></div>
+</div></div><br/>
+
+<div id="menu_sortie_disp">
+<div class="blocSelection">
+   <input type="checkbox" id="sortie_disp">    
+   <label for="sortie_disp">Bonification de sortie classe relais, établissements sanitaires et médico-sociaux,<br/>ULIS et UPR 5 ans et plus</label>
+     <div class="tooltip"><img src="infobulle.png" class="tooltipicon"><div class="tooltiptext">
+        Titulaire d’un poste à titre définitif depuis 5 ans et plus.<br/>Pièce justificative à joindre : arrêté d’affectation ou attestation d’exercice des fonctions.
+     </div></div>
+</div></div><br/>
+
+<div id="menu_anciennete_paris">
+<div class="blocSelection">
+   <label for="menu_anciennete_paris">Ancienneté de poste, titulaire d'un poste définitif d'un établissement de Paris</label>
+     <div class="tooltip"><img src="infobulle.png" class="tooltipicon"><div class="tooltiptext">
+        Ancienneté de poste en qualité de titulaire d’un poste définitif d’un établissement de l’académie de Paris (hors zone de remplacement) au 31/08/2020.<br/>Les disciplines d’affectation et de mouvement doivent être identiques.
+     </div></div>
+   <div class="menuSelection">
+      <select id="anciennete_paris">
+        <option value="none" selected>Sans objet</option>
+        <option value="8">8 ans</option>
+        <option value="12">12 ans</option>
+      </select>
+   </div>
+</div></div><br/>
+
+<div class="blocSelection" id="menu_reintegration_parental">
+   <label for="menu_reintegration_parental">Réintégration inconditionnelle après perte de poste consécutive à un congé parental</label>
+     <div class="tooltip"><img src="infobulle.png" class="tooltipicon"><div class="tooltiptext">
+        1000 pts pour les vœux correspondant à l'affectation précédente. Vérifier la circulaire.<br/>
+        50 pts pour un vœu correspondant à l'arrondissement de résidence (COM). Justificatif de domicile à fournir.
+     </div></div>
+   <div class="menuSelection">
+      <select id="reintegration_parental">
+         <option value="none" selected>Sans objet</option>
+         <option value="1000">Vœux liés à l'affectation précédente</option>
+         <option value="50">Vœu lié à la résidence</option>
+      </select>
+    </div>
+</div><br/>
+
+<div class="blocSelection" id="menu_reintegration_autre">
+   <input type="checkbox" id="reintegration_autre">    
+   <label for="reintegration_autre">Réintégration après perte de poste consécutive à une affectation en poste adapté<br/>ou à un congé de longue durée</label>
+     <div class="tooltip"><img src="infobulle.png" class="tooltipicon"><div class="tooltiptext">
+             La décision de réintégration, après avis du comité médical, devra impérativement être intervenue avant la date de retour des confirmations de demande de mutation intra-académique.<br/>
+             Personnels sortant de poste adapté (PACD ou PALD).<br/>Personnels titulaires, réintégrant suite à un CLD ayant entrainé la perte d’un poste occupé à titre définitif dans l’académie de Paris. 
+     </div></div>
+</div>
+        
+        <h2>Bonifications en fonction du vœu exprimé</h2>
+        
+<div class="blocSelection" id="menu_voeu_preferenciel">
+   <label for="menu_voeu_preferenciel">Vœu préférentiel, à partir de la deuxième année</label>
+     <div class="tooltip"><img src="infobulle.png" class="tooltipicon"><div class="tooltiptext">
+        Vœu COM tout poste de rang 1, exprimé au moins pour la deuxième fois consécutive.<br/>20 pts par année, dans la limite de 240 pts.
+     </div></div>
+   <div class="menuSelection">
+      <select id="voeu_preferenciel">
+         <option value="0" selected>Sans objet</option>
+         <option value="1">2ème année</option>
+         <option value="2">3ème année</option>
+         <option value="3">4ème année</option>
+         <option value="4">5ème année</option>
+         <option value="5">6ème année</option>
+         <option value="6">7ème année</option>
+         <option value="7">8ème année</option>
+         <option value="8">9ème année</option>
+         <option value="9">10ème année</option>
+         <option value="10">11ème année</option>
+         <option value="11">12ème année</option>
+         <option value="12">13ème année</option>
+      </select>
+    </div>
+</div><br/>
+
+<div class="blocSelection" id="menu_demande_REP">
+   <input type="checkbox" id="demande_REP">    
+   <label for="demande_REP">Vœu établissement classé REP</label>
+     <div class="tooltip"><img src="infobulle.png" class="tooltipicon"><div class="tooltiptext">
+             Non cumulable avec une autre bonification d’entrée en établissement REP. 
+     </div></div>
+</div><br/>
+        
+        
+<div class="boutonCalcul" id="calcul">
+   <input type="button" value="Calculer" onclick="calculmutation();" />
+</div>
+
+<div id="aAfficher">
+   <div id="resultat">
+      <h2>Résultat</h2>
+      <p>Voici une estimation de vos points de mutation:</p>
+      <figure>
+         <table>
+            <thead>
+               <tr>
+                  <th class="col1">Type de vœu</th>
+                  <th class="col2">Points</th>
+                  <th class="col3">Commentaires</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td class="col1">Vœu académique (ACA)</td>
+                  <td class="col2" id="pt_total_ACA"></td>
+                  <td class="col3" id="ct_total_ACA"></td>
+               </tr>
+               <tr>
+                  <td class="col1">Vœu gp arrondissements (GEO)</td>
+                  <td class="col2" id="pt_total_GEO"></td>
+                  <td class="col3" id="ct_total_GEO"></td>
+               </tr>
+               <tr>
+                  <td class="col1">Vœu arrondissement (COM)</td>
+                  <td class="col2" id="pt_total_COM"></td>
+                  <td class="col3" id="ct_total_COM"></td>
+               </tr>
+               <tr>
+                  <td class="col1">Vœu établissement (ETB)</td>
+                  <td class="col2" id="pt_total_ETB"></td>
+                  <td class="col3" id="ct_total_ETB"></td>
+               </tr>
+               <tr>
+                  <td class="col1">Vœu ZR (ZRA)</td>
+                  <td class="col2" id="pt_total_ZRA"></td>
+                  <td class="col3" id="ct_total_ZRA"></td>
+               </tr>
+            </tbody>
+         </table>
+      </figure>
+   </div>
+</div>
+
+  </body>
+</html>
