@@ -3,13 +3,13 @@ function calculmutation() {
     document.getElementById('resultat').style.display = 'none';
     /* */
 
-    // -------- déclaration des valeurs de référence pour les points  -------------
-    // ancienneté de poste
+    // -------- dï¿½claration des valeurs de rï¿½fï¿½rence pour les points  -------------
+    // anciennetï¿½ de poste
     const pt_anciennete_poste_par_an = 20;
     const pt_anciennete_poste_tous_les_x_ans = 50;
     const pt_anciennete_poste_x_ans = 4;
     const pt_anciennete_poste_forfait_stagiaire_ex_autre_corps = 20;
-    // ancienneté de service (échelon)
+    // anciennetï¿½ de service (ï¿½chelon)
     const pt_echelon_par_an = 7;
     const pt_echelon_normale_min = 14;
     const pt_echelon_hc_certifies_forfait = 56;
@@ -47,19 +47,19 @@ function calculmutation() {
                                  "8"    : 50,
                                  "12"   : 100};
     const pt_reintegration_autre = 1000;
-    // vœux spécifiques
+    // vï¿½ux spï¿½cifiques
     const pt_voeu_preferenciel_annee = 20;
     const pt_demande_REP = 13;
     
-     // --------   récupération de valeurs clés ---------
-    // Récupération des valeurs de la partie communune
+     // --------   rï¿½cupï¿½ration de valeurs clï¿½s ---------
+    // Rï¿½cupï¿½ration des valeurs de la partie communune
     let statut = document.getElementById('statut').value;
     let anciennete_poste = document.getElementById('anciennete_poste').value;
     let classe = document.getElementById('classe').value;
     let echelon = document.getElementById('echelon').value;
-    // Récupération des données de situation familiale
+    // Rï¿½cupï¿½ration des donnï¿½es de situation familiale
     let enfants = document.getElementById('enfants').value;
-    // Récupération des données de situation personnelle
+    // Rï¿½cupï¿½ration des donnï¿½es de situation personnelle
     let entree_metier = document.getElementById('entree_metier').checked;
     let contractuel_actif_avant_stage = document.getElementById('contractuel_actif_avant_stage').checked;
     let stagiaire_ex_autre = document.getElementById('stagiaire_ex_autre').checked;
@@ -75,7 +75,7 @@ function calculmutation() {
     let anciennete_paris = document.getElementById('anciennete_paris').value;
     let reintegration_parental = document.getElementById('reintegration_parental').value;
     let reintegration_autre = document.getElementById('reintegration_autre').checked;
-    // Récupération des données de vœux
+    // Rï¿½cupï¿½ration des donnï¿½es de vï¿½ux
     let voeu_preferenciel = document.getElementById('voeu_preferenciel').value;
     let demande_REP = document.getElementById('demande_REP').checked;
     
@@ -292,6 +292,34 @@ function calculmutation() {
     
     let pt_situation_incomp = 0;
     let ct_situation_incomp = " ";
+
+    let casDeFigure = "";
+
+   /*  console.log("pt_situation_education_prioritaire " + pt_situation_education_prioritaire)
+    console.log("pt_situation_sortie_disp "+ pt_situation_sortie_disp)
+    if ( (pt_situation_education_prioritaire > 1) && (pt_situation_sortie_disp > 1) )
+        casDeFigure = "educPrioETsortie";
+    if ( (pt_situation_education_prioritaire > 1) && (pt_situation_sortie_disp = "0") )
+        casDeFigure = "educPrio";
+    if ( (pt_situation_education_prioritaire = "0") && (pt_situation_sortie_disp > 1) )
+        casDeFigure = "sortie";
+    if ( (pt_situation_education_prioritaire = "0") && (pt_situation_sortie_disp = "0") )
+        casDeFigure = "";
+
+    switch ( casDeFigure ) {
+        case "educPrioETsortie":
+            alert("Educaton prio et sortie de dispositif");
+            break;
+        case "educPrio":
+            alert("Education prio");
+            break;
+        case "sortie":
+            alert("Sortie");
+            break;
+        default:
+            break;
+    } */
+
     if ( (pt_situation_education_prioritaire > 1) && (pt_situation_sortie_disp > 1) ) {
         if (pt_situation_education_prioritaire > pt_situation_sortie_disp) {
             pt_situation_incomp = pt_situation_education_prioritaire;
@@ -300,13 +328,13 @@ function calculmutation() {
             pt_situation_incomp = pt_situation_sortie_disp;
             ct_situation_incomp =  ct_situation_sortie_disp + "ATTENTION: pas de cumul des points de sortie avec les points d'affectation en REP qui n'ont pas &eacute;t&eacute; pris en compte car moins int&eacute;ressants.<br/>";
         }
-    } else if ( (pt_situation_education_prioritaire > 1) && (pt_situation_sortie_disp = 0) ) {
+    } else if ( (pt_situation_education_prioritaire > 1) && (pt_situation_sortie_disp = "0") ) {
             pt_situation_incomp = pt_situation_education_prioritaire;
             ct_situation_incomp = ct_situation_education_prioritaire;
-        } else if ( (pt_situation_education_prioritaire = 0) && (pt_situation_sortie_disp > 1) ) {
+        } else if ( (pt_situation_education_prioritaire = "0") && (pt_situation_sortie_disp > 1) ) {
             pt_situation_incomp = pt_situation_sortie_disp;
             ct_situation_incomp = ct_situation_sortie_disp;
-        } else if ( (pt_situation_education_prioritaire = 0) && (pt_situation_sortie_disp = 0) ) {
+        } else if ( (pt_situation_education_prioritaire = "0") && (pt_situation_sortie_disp = "0") ) {
             pt_situation_incomp = 0;
             ct_situation_incomp = " ";
         };
@@ -395,7 +423,7 @@ function calculmutation() {
     let ct_total_COM = ct_partie_commune + ct_situation_familiale + ct_situation_stage + ct_situation_personnelle_medicale_2 + ct_situation_carte + ct_situation_reconversion + ct_agregees_lycee + ct_situation_personnelle_TZR_1 + ct_situation_sortie_FLS + ct_situation_incomp + ct_reintegration_parental_1 + ct_reintegration_parental_2 + ct_voeu_preferenciel;
     let ct_total_ETB = ct_partie_commune + ct_situation_stage + ct_situation_personnelle_medicale_1 + ct_situation_reconversion + ct_agregees_lycee + ct_reintegration_parental_1 + ct_voeu_demande_REP;
     let ct_total_ZRA = ct_partie_commune + ct_situation_stage + ct_situation_personnelle_medicale_2 + ct_situation_reconversion + ct_reintregration_parental_1_ZRA + ct_situation_reintegration_autre_ZRA;
-    // NON CUMUL : poste REP+/APV/REP et sortie classe relais, établissements sanitaires et médico-sociaux, ULIS et UPR --> OK
+    // NON CUMUL : poste REP+/APV/REP et sortie classe relais, ï¿½tablissements sanitaires et mï¿½dico-sociaux, ULIS et UPR --> OK
 
     // rounding to avoid decimal issues ( see http://adripofjavascript.com/blog/drips/avoiding-problems-with-decimal-math-in-javascript.html )
     pt_partie_commune = pt_partie_commune.toFixed(1);
@@ -406,7 +434,7 @@ function calculmutation() {
     pt_total_ETB = pt_total_ETB.toFixed(1);
     pt_total_ZRA = pt_total_ZRA.toFixed(1);
 
-    //Affichage du résultat
+    //Affichage du rï¿½sultat
     document.getElementById("pt_total_ACA").innerHTML = pt_total_ACA + " pts";
     document.getElementById("ct_total_ACA").innerHTML = ct_total_ACA ;
     document.getElementById("pt_total_GEO").innerHTML = pt_total_GEO + " pts";
