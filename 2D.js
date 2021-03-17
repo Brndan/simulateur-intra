@@ -3,13 +3,13 @@ function calculmutation() {
     document.getElementById('resultat').style.display = 'none';
     /* */
 
-    // -------- d�claration des valeurs de r�f�rence pour les points  -------------
-    // anciennet� de poste
+    // -------- déclaration des valeurs de référence pour les points  -------------
+    // ancienneté de poste
     const pt_anciennete_poste_par_an = 20;
     const pt_anciennete_poste_tous_les_x_ans = 50;
     const pt_anciennete_poste_x_ans = 4;
     const pt_anciennete_poste_forfait_stagiaire_ex_autre_corps = 20;
-    // anciennet� de service (�chelon)
+    // anciennet� de service (échelon)
     const pt_echelon_par_an = 7;
     const pt_echelon_normale_min = 14;
     const pt_echelon_hc_certifies_forfait = 56;
@@ -47,19 +47,19 @@ function calculmutation() {
                                  "8"    : 50,
                                  "12"   : 100};
     const pt_reintegration_autre = 1000;
-    // v�ux sp�cifiques
+    // vœux spécifiques
     const pt_voeu_preferenciel_annee = 20;
     const pt_demande_REP = 13;
     
-     // --------   r�cup�ration de valeurs cl�s ---------
-    // R�cup�ration des valeurs de la partie communune
+     // --------   récupération de valeurs clés ---------
+    // Récupération des valeurs de la partie communune
     let statut = document.getElementById('statut').value;
-    let anciennete_poste = document.getElementById('anciennete_poste').value;
+    let anciennete_poste = +document.getElementById('anciennete_poste').value;
     let classe = document.getElementById('classe').value;
-    let echelon = document.getElementById('echelon').value;
-    // R�cup�ration des donn�es de situation familiale
-    let enfants = document.getElementById('enfants').value;
-    // R�cup�ration des donn�es de situation personnelle
+    let echelon = +document.getElementById('echelon').value;
+    // Récupération des données de situation familiale
+    let enfants = +document.getElementById('enfants').value;
+    // Récupération des données de situation personnelle
     let entree_metier = document.getElementById('entree_metier').checked;
     let contractuel_actif_avant_stage = document.getElementById('contractuel_actif_avant_stage').checked;
     let stagiaire_ex_autre = document.getElementById('stagiaire_ex_autre').checked;
@@ -75,7 +75,7 @@ function calculmutation() {
     let anciennete_paris = document.getElementById('anciennete_paris').value;
     let reintegration_parental = document.getElementById('reintegration_parental').value;
     let reintegration_autre = document.getElementById('reintegration_autre').checked;
-    // R�cup�ration des donn�es de v�ux
+    // Récupération des données de vœux
     let voeu_preferenciel = document.getElementById('voeu_preferenciel').value;
     let demande_REP = document.getElementById('demande_REP').checked;
     
@@ -293,7 +293,7 @@ function calculmutation() {
     let pt_situation_incomp = 0;
     let ct_situation_incomp = " ";
 
-    let casDeFigure = "";
+    //let casDeFigure = "";
 
    /*  console.log("pt_situation_education_prioritaire " + pt_situation_education_prioritaire)
     console.log("pt_situation_sortie_disp "+ pt_situation_sortie_disp)
@@ -411,6 +411,31 @@ function calculmutation() {
         ct_voeu_demande_REP = "V&oelig;u REP uniquement.<br/>";
     };
     
+    pt_partie_commune = parseInt(pt_partie_commune)
+    pt_situation_stage = parseInt(pt_situation_stage)
+    pt_situation_personnelle_medicale_2 = parseInt(pt_situation_personnelle_medicale_2)
+    pt_situation_personnelle_medicale_1 = parseInt(pt_situation_personnelle_medicale_1)
+    pt_situation_carte = parseInt(pt_situation_carte)
+    pt_situation_reconversion = parseInt(pt_situation_reconversion)
+    pt_situation_education_prioritaire = parseInt(pt_situation_education_prioritaire)
+    pt_situation_anciennete_paris = parseInt(pt_situation_anciennete_paris)
+    pt_reintegration_parental_1 = parseInt(pt_reintegration_parental_1)
+    pt_situation_reintegration_autre = parseInt(pt_situation_reintegration_autre)
+    pt_agregees_lycee_ACA = parseInt(pt_agregees_lycee_ACA)
+    pt_situation_personnelle_TZR_2 = parseInt(pt_situation_personnelle_TZR_2)
+    pt_situation_TZR_REP = parseInt(pt_situation_TZR_REP)
+    pt_situation_sortie_FLS = parseInt(pt_situation_sortie_FLS)
+    pt_situation_incomp = parseInt(pt_situation_incomp)
+    pt_agregees_lycee_GEO = parseInt(pt_agregees_lycee_GEO)
+    pt_situation_familiale = parseInt(pt_situation_familiale)
+    pt_agregees_lycee_COM = parseInt(pt_agregees_lycee_COM)
+    pt_situation_personnelle_TZR_1 = parseInt(pt_situation_personnelle_TZR_1)
+    pt_reintegration_parental_2 = parseInt(pt_reintegration_parental_2)
+    pt_voeu_preferenciel = parseInt(pt_voeu_preferenciel)
+
+
+
+
     // pt_total...
     let pt_total_ACA = pt_partie_commune + pt_situation_stage + pt_situation_personnelle_medicale_2 + pt_situation_carte + pt_situation_reconversion + pt_agregees_lycee_ACA + pt_situation_personnelle_TZR_2 + pt_situation_TZR_REP + pt_situation_sortie_FLS + pt_situation_incomp + pt_situation_anciennete_paris + pt_reintegration_parental_1 + pt_situation_reintegration_autre;
     let pt_total_GEO = pt_partie_commune + pt_situation_stage + pt_situation_personnelle_medicale_2 + pt_situation_reconversion + pt_agregees_lycee_GEO + pt_situation_personnelle_TZR_2 + pt_situation_sortie_FLS + pt_situation_incomp + pt_situation_anciennete_paris;
@@ -424,6 +449,7 @@ function calculmutation() {
     let ct_total_ETB = ct_partie_commune + ct_situation_stage + ct_situation_personnelle_medicale_1 + ct_situation_reconversion + ct_agregees_lycee + ct_reintegration_parental_1 + ct_voeu_demande_REP;
     let ct_total_ZRA = ct_partie_commune + ct_situation_stage + ct_situation_personnelle_medicale_2 + ct_situation_reconversion + ct_reintregration_parental_1_ZRA + ct_situation_reintegration_autre_ZRA;
     // NON CUMUL : poste REP+/APV/REP et sortie classe relais, �tablissements sanitaires et m�dico-sociaux, ULIS et UPR --> OK
+
 
     // rounding to avoid decimal issues ( see http://adripofjavascript.com/blog/drips/avoiding-problems-with-decimal-math-in-javascript.html )
     pt_partie_commune = pt_partie_commune.toFixed(1);
