@@ -125,7 +125,7 @@ function calculmutation() {
     let ct_situation_familiale = " ";
     pt_situation_familiale = pt_enfants[enfants];
     if (pt_situation_familiale >= 1) {
-        ct_situation_familiale = "V&oelig;u tout poste, arrondissement de r&eacute;sidence de l'enfant<br/>";
+        ct_situation_familiale = "Arrondissement de r&eacute;sidence de l'enfant<br/>";
     };
             
     
@@ -171,7 +171,7 @@ function calculmutation() {
     switch (situation_medicale) {
         case "rqth":
             pt_situation_personnelle_medicale_2 = 60;
-            ct_situation_personnelle_medicale_2 = "V&oelig;u tout poste (sauf ZRA).<br/>Sous r&eacute;serve de la transmission du document justifiant de la qualit&eacute; de BOE en cours de validit&eacute;<br/>";
+            ct_situation_personnelle_medicale_2 = "Sous r&eacute;serve de la transmission du document justifiant de la qualit&eacute; de BOE en cours de validit&eacute;<br/>";
             break;
         case "preconisations_drh":
             pt_situation_personnelle_medicale_2 = 0;
@@ -190,14 +190,14 @@ function calculmutation() {
     let ct_situation_carte = " ";
     pt_situation_carte = carte_scolaire * pt_carte_scolaire;
     if (pt_situation_carte >= 1) {
-        ct_situation_carte = "V&oelig;u tout poste (ou lyc&eacute;e pour les agr&eacute;g&eacute;&middot;es)<br/>";
+        ct_situation_carte = "Carte scolaire : v&oelig;u lyc&eacute;e seulement pour les agr&eacute;g&eacute;&middot;es.<br/>";
     };
     
     let pt_situation_education_prioritaire = 0;
     let ct_situation_education_prioritaire = " ";
     pt_situation_education_prioritaire = pt_education_prioritaire[education_prioritaire];
     if (pt_situation_education_prioritaire >= 1) {
-        ct_situation_education_prioritaire = "V&oelig;u tout poste.<br/>";
+        ct_situation_education_prioritaire = " ";
     };
     
     let pt_situation_reconversion = 0;
@@ -218,7 +218,7 @@ function calculmutation() {
     
     let ct_agregees_lycee = " ";
     if (agregees_lycee) {
-        ct_agregees_lycee = "V&oelig;u lyc&eacute;e uniquement<br/>";
+        ct_agregees_lycee = " ";
     };
     
     let pt_situation_personnelle_TZR_1 = 0;
@@ -226,7 +226,7 @@ function calculmutation() {
     switch (situation_TZR) {
         case "3":
             pt_situation_personnelle_TZR_1 = 150;
-            ct_situation_personnelle_TZR_1 = "V&oelig;u tout poste.<br/>";
+            ct_situation_personnelle_TZR_1 = " ";
             break;
         case "1a4":
             pt_situation_personnelle_TZR_1 = 0;
@@ -250,11 +250,11 @@ function calculmutation() {
     switch (situation_TZR) {
         case "1a4":
             pt_situation_personnelle_TZR_2 = 150;
-            ct_situation_personnelle_TZR_2 = "V&oelig;u tout poste.<br/>";
+            ct_situation_personnelle_TZR_2 = " ";
             break;
         case "5":
             pt_situation_personnelle_TZR_2 = 200;
-            ct_situation_personnelle_TZR_2 = "V&oelig;u tout poste.<br/>";
+            ct_situation_personnelle_TZR_2 = " ";
             break;
             case "3":
             pt_situation_personnelle_TZR_2 = 0;
@@ -280,14 +280,14 @@ function calculmutation() {
     let ct_situation_sortie_FLS = " ";
     pt_situation_sortie_FLS = sortie_FLS * pt_sortie_FLS;
     if (pt_situation_sortie_FLS >= 1) {
-        ct_situation_sortie_FLS = "V&oelig;u tout poste.<br/>";
+        ct_situation_sortie_FLS = " ";
     };
     
     let pt_situation_sortie_disp = 0;
     let ct_situation_sortie_disp = " ";
     pt_situation_sortie_disp = sortie_disp * pt_sortie_disp;
     if (pt_situation_sortie_disp >= 1) {
-        ct_situation_sortie_disp = "V&oelig;u tout poste.<br/>";
+        ct_situation_sortie_disp = " ";
     };
     
     let pt_situation_incomp = 0;
@@ -349,7 +349,7 @@ function calculmutation() {
     switch (reintegration_parental) {
         case "1000":
             pt_reintegration_parental_1 = 1000;
-            ct_reintegration_parental_1 = "Ordre &agrave; respecter : en rang 1 : ETB correspondant &agrave; l'&eacute;tablissement pr&eacute;c&eacute;dent, en rang 2 : COM tout poste correspondant &agrave; l'&eacute;tablissement pr&eacute;c&eacute;dent, en rang 3 : ACA tout poste correspondant &agrave; l'&eacute;tablissement pr&eacute;c&eacute;dent.<br/>";
+            ct_reintegration_parental_1 = "R&eacute;int&eacute;gration apr&egrave;s cong&eacute; parental : ordre &agrave; respecter : en rang 1 : ETB correspondant &agrave; l'&eacute;tablissement pr&eacute;c&eacute;dent, en rang 2 : COM tout poste correspondant &agrave; l'&eacute;tablissement pr&eacute;c&eacute;dent, en rang 3 : ACA tout poste correspondant &agrave; l'&eacute;tablissement pr&eacute;c&eacute;dent.<br/>";
             ct_reintregration_parental_1_ZRA = "V&oelig;u formul&eacute; en rang 1 si pr&eacute;c&eacute;demment TZR.<br/>";
             break;
         case "50":
@@ -371,7 +371,7 @@ function calculmutation() {
     switch (reintegration_parental) {
         case "50":
             pt_reintegration_parental_2 = 50;
-            ct_reintegration_parental_2 = "Tout poste, correspondant au domicile. V&oelig;u formul&eacute; en rang 1.<br/>";
+            ct_reintegration_parental_2 = "V&oelig;u 1 uniquement, correspondant au domicile.<br/>";
             break;
         case "1000":
             pt_reintegration_parental_2 = 0;
@@ -392,7 +392,7 @@ function calculmutation() {
     pt_situation_reintegration_autre = reintegration_autre * pt_reintegration_autre;
     if (pt_situation_reintegration_autre >= 1) {
         ct_situation_reintegration_autre_ACA = "V&oelig;u tout poste. Si pr&eacute;c&eacute;demment titulaire d'un &eacute;tablissement de Paris.<br/>";
-        ct_situation_reintegration_autre_ZRA = "Si pr&eacute;c&eacute;demment TZR de Paris.<br/>";
+        ct_situation_reintegration_autre_ZRA = "Si pr&eacute;c&eacute;demment TZR dans Paris.<br/>";
     };
     
     // (4) pt_voeu
@@ -401,17 +401,17 @@ function calculmutation() {
     let ct_voeu_preferenciel = " ";
     pt_voeu_preferenciel = voeu_preferenciel * pt_voeu_preferenciel_annee;
     if (pt_voeu_preferenciel >= 1) {
-        ct_voeu_preferenciel = "V&oelig;u tout poste de rang 1.<br/>";
+        ct_voeu_preferenciel = "V&oelig;u 1 uniquement (v&oelig;u pr&eacute;f&eacute;renciel).<br/>";
     };
     
     let pt_voeu_demande_REP = 0;
     let ct_voeu_demande_REP = " ";
     pt_voeu_demande_REP = demande_REP * pt_demande_REP;
     if (pt_voeu_demande_REP >= 1) {
-        ct_voeu_demande_REP = "V&oelig;u REP uniquement.<br/>";
+        ct_voeu_demande_REP = " ";
     };
     
-    pt_partie_commune = parseInt(pt_partie_commune)
+    pt_partie_commune = parseInt(pt_partie_commune);
     pt_situation_stage = parseInt(pt_situation_stage)
     pt_situation_personnelle_medicale_2 = parseInt(pt_situation_personnelle_medicale_2)
     pt_situation_personnelle_medicale_1 = parseInt(pt_situation_personnelle_medicale_1)
@@ -427,7 +427,7 @@ function calculmutation() {
     pt_situation_sortie_FLS = parseInt(pt_situation_sortie_FLS)
     pt_situation_incomp = parseInt(pt_situation_incomp)
     pt_agregees_lycee_GEO = parseInt(pt_agregees_lycee_GEO)
-    pt_situation_familiale = parseInt(pt_situation_familiale)
+    pt_situation_familiale = parseFloat(pt_situation_familiale)
     pt_agregees_lycee_COM = parseInt(pt_agregees_lycee_COM)
     pt_situation_personnelle_TZR_1 = parseInt(pt_situation_personnelle_TZR_1)
     pt_reintegration_parental_2 = parseInt(pt_reintegration_parental_2)
@@ -437,16 +437,34 @@ function calculmutation() {
 
 
     // pt_total...
-    let pt_total_ACA = pt_partie_commune + pt_situation_stage + pt_situation_personnelle_medicale_2 + pt_situation_carte + pt_situation_reconversion + pt_agregees_lycee_ACA + pt_situation_personnelle_TZR_2 + pt_situation_TZR_REP + pt_situation_sortie_FLS + pt_situation_incomp + pt_situation_anciennete_paris + pt_reintegration_parental_1 + pt_situation_reintegration_autre;
-    let pt_total_GEO = pt_partie_commune + pt_situation_stage + pt_situation_personnelle_medicale_2 + pt_situation_reconversion + pt_agregees_lycee_GEO + pt_situation_personnelle_TZR_2 + pt_situation_sortie_FLS + pt_situation_incomp + pt_situation_anciennete_paris;
-    let pt_total_COM = pt_partie_commune + pt_situation_familiale + pt_situation_stage + pt_situation_personnelle_medicale_2 + pt_situation_carte + pt_situation_reconversion + pt_agregees_lycee_COM + pt_situation_personnelle_TZR_1 + pt_situation_sortie_FLS + pt_situation_incomp + pt_situation_anciennete_paris + pt_reintegration_parental_1 + pt_reintegration_parental_2 + pt_voeu_preferenciel;
-    let pt_total_ETB = pt_partie_commune + pt_situation_stage + pt_situation_personnelle_medicale_1 + pt_situation_reconversion + pt_agregees_lycee_ETB + pt_situation_anciennete_paris+ pt_reintegration_parental_1 + pt_voeu_demande_REP;
+    let pt_total_ACA_base = pt_partie_commune + pt_situation_reconversion + pt_situation_anciennete_paris + pt_situation_personnelle_medicale_1 + pt_situation_stage;
+    let pt_total_ACA_ttposte = pt_partie_commune + pt_situation_reconversion + pt_situation_anciennete_paris + pt_situation_personnelle_medicale_1 + pt_situation_stage + pt_situation_personnelle_medicale_2 + pt_situation_incomp + pt_situation_carte + pt_situation_personnelle_TZR_2 + pt_situation_sortie_FLS + pt_situation_reintegration_autre + pt_reintegration_parental_1;
+    let pt_total_ACA_lycee = pt_partie_commune + pt_situation_reconversion + pt_situation_anciennete_paris + pt_situation_personnelle_medicale_1 + pt_situation_stage + pt_situation_carte + pt_agregees_lycee_ACA;
+    let pt_total_GEO_base = pt_partie_commune +  pt_situation_reconversion + pt_situation_anciennete_paris + pt_situation_personnelle_medicale_1 + pt_situation_stage;
+    let pt_total_GEO_ttposte = pt_partie_commune + pt_situation_reconversion + pt_situation_anciennete_paris + pt_situation_personnelle_medicale_1 + pt_situation_stage + pt_situation_personnelle_medicale_2 + pt_situation_incomp + pt_situation_personnelle_TZR_2 + pt_situation_sortie_FLS + pt_reintegration_parental_2;
+    let pt_total_GEO_lycee = pt_partie_commune + pt_situation_reconversion + pt_situation_anciennete_paris + pt_situation_personnelle_medicale_1 + pt_situation_stage + pt_agregees_lycee_GEO;
+    let pt_total_COM_base = pt_partie_commune +  pt_situation_reconversion + pt_situation_anciennete_paris + pt_situation_personnelle_medicale_1 + pt_situation_stage;
+    let pt_total_COM_ttposte = pt_partie_commune + pt_situation_reconversion + pt_situation_anciennete_paris + pt_situation_personnelle_medicale_1 + pt_situation_stage + pt_situation_personnelle_medicale_2 + pt_situation_incomp + pt_situation_carte + pt_voeu_preferenciel + pt_situation_personnelle_TZR_1 + pt_situation_sortie_FLS + pt_situation_familiale + pt_reintegration_parental_1;
+    let pt_total_COM_lycee = pt_partie_commune + pt_situation_reconversion + pt_situation_anciennete_paris + pt_situation_personnelle_medicale_1 + pt_situation_stage + pt_situation_carte + pt_agregees_lycee_COM;
+    let pt_total_ETB_base = pt_partie_commune + pt_situation_reconversion + pt_situation_anciennete_paris + pt_situation_personnelle_medicale_1 + pt_situation_stage;
+    let pt_total_ETB_ttposte = pt_partie_commune + pt_situation_reconversion + pt_situation_anciennete_paris + pt_situation_personnelle_medicale_1 + pt_situation_stage + pt_reintegration_parental_1;
+    let pt_total_ETB_lycee = pt_partie_commune + pt_situation_reconversion + pt_situation_anciennete_paris + pt_situation_personnelle_medicale_1 + pt_situation_stage + pt_agregees_lycee_ETB;
+    let pt_total_ETB_REP = pt_partie_commune + pt_situation_reconversion + pt_situation_anciennete_paris + pt_situation_personnelle_medicale_1 + pt_situation_stage + pt_voeu_demande_REP + pt_situation_TZR_REP;
     let pt_total_ZRA = pt_partie_commune + pt_situation_stage + pt_situation_personnelle_medicale_2 + pt_situation_reconversion + pt_situation_education_prioritaire + pt_situation_anciennete_paris + pt_reintegration_parental_1 + pt_situation_reintegration_autre;
     
-    let ct_total_ACA = ct_partie_commune + ct_situation_stage + ct_situation_personnelle_medicale_2 + ct_situation_carte + ct_situation_reconversion + ct_agregees_lycee + ct_situation_personnelle_TZR_2 + ct_situation_TZR_REP + ct_situation_sortie_FLS + ct_situation_incomp + ct_reintegration_parental_1 + ct_situation_reintegration_autre_ACA;
-    let ct_total_GEO = ct_partie_commune + ct_situation_stage + ct_situation_personnelle_medicale_2 + ct_situation_reconversion + ct_agregees_lycee + ct_situation_personnelle_TZR_2 + ct_situation_sortie_FLS + ct_situation_incomp;
-    let ct_total_COM = ct_partie_commune + ct_situation_familiale + ct_situation_stage + ct_situation_personnelle_medicale_2 + ct_situation_carte + ct_situation_reconversion + ct_agregees_lycee + ct_situation_personnelle_TZR_1 + ct_situation_sortie_FLS + ct_situation_incomp + ct_reintegration_parental_1 + ct_reintegration_parental_2 + ct_voeu_preferenciel;
-    let ct_total_ETB = ct_partie_commune + ct_situation_stage + ct_situation_personnelle_medicale_1 + ct_situation_reconversion + ct_agregees_lycee + ct_reintegration_parental_1 + ct_voeu_demande_REP;
+    let ct_total_ACA_base = ct_partie_commune + ct_situation_reconversion + ct_situation_anciennete_paris + ct_situation_personnelle_medicale_1 + ct_situation_stage;
+    let ct_total_ACA_ttposte = ct_partie_commune + ct_situation_reconversion + ct_situation_anciennete_paris + ct_situation_personnelle_medicale_1 + ct_situation_stage + ct_situation_personnelle_medicale_2 + ct_situation_carte + ct_situation_personnelle_TZR_2 + ct_situation_sortie_FLS + ct_situation_incomp + ct_situation_reintegration_autre_ACA + ct_reintegration_parental_1;
+    let ct_total_ACA_lycee = ct_partie_commune + ct_situation_reconversion + ct_situation_anciennete_paris + ct_situation_personnelle_medicale_1 + ct_situation_stage + ct_situation_carte;
+    let ct_total_GEO_base = ct_partie_commune + ct_situation_reconversion + ct_situation_anciennete_paris + ct_situation_personnelle_medicale_1 + ct_situation_stage;
+    let ct_total_GEO_ttposte = ct_partie_commune + ct_situation_reconversion + ct_situation_anciennete_paris + ct_situation_personnelle_medicale_1 + ct_situation_stage + ct_situation_personnelle_medicale_2 + ct_situation_personnelle_TZR_2 + ct_situation_sortie_FLS + ct_situation_incomp;
+    let ct_total_GEO_lycee = ct_partie_commune + ct_situation_reconversion + ct_situation_anciennete_paris + ct_situation_personnelle_medicale_1 + ct_situation_stage;
+    let ct_total_COM_base = ct_partie_commune + ct_situation_reconversion + ct_situation_anciennete_paris + ct_situation_personnelle_medicale_1 + ct_situation_stage;
+    let ct_total_COM_ttposte = ct_partie_commune + ct_situation_reconversion + ct_situation_anciennete_paris + ct_situation_personnelle_medicale_1 + ct_situation_stage + ct_situation_personnelle_medicale_2 + ct_situation_carte + ct_voeu_preferenciel + ct_situation_personnelle_TZR_1 + ct_situation_sortie_FLS + ct_situation_incomp + ct_situation_familiale + ct_reintegration_parental_2 + ct_reintegration_parental_1;
+    let ct_total_COM_lycee = ct_partie_commune + ct_situation_reconversion + ct_situation_anciennete_paris + ct_situation_personnelle_medicale_1 + ct_situation_stage + ct_situation_carte;
+    let ct_total_ETB_base = ct_partie_commune + ct_situation_reconversion + ct_situation_anciennete_paris + ct_situation_personnelle_medicale_1 + ct_situation_stage;
+    let ct_total_ETB_ttposte = ct_partie_commune + ct_situation_reconversion + ct_situation_anciennete_paris + ct_situation_personnelle_medicale_1 + ct_situation_stage + ct_reintegration_parental_1;
+    let ct_total_ETB_lycee = ct_partie_commune + ct_situation_reconversion + ct_situation_anciennete_paris + ct_situation_personnelle_medicale_1 + ct_situation_stage;
+    let ct_total_ETB_REP = ct_partie_commune + ct_situation_reconversion + ct_situation_anciennete_paris + ct_situation_personnelle_medicale_1 + ct_situation_stage + ct_situation_TZR_REP;
     let ct_total_ZRA = ct_partie_commune + ct_situation_stage + ct_situation_personnelle_medicale_2 + ct_situation_reconversion + ct_reintregration_parental_1_ZRA + ct_situation_reintegration_autre_ZRA;
     // NON CUMUL : poste REP+/APV/REP et sortie classe relais, �tablissements sanitaires et m�dico-sociaux, ULIS et UPR --> OK
 
@@ -454,21 +472,48 @@ function calculmutation() {
     // rounding to avoid decimal issues ( see http://adripofjavascript.com/blog/drips/avoiding-problems-with-decimal-math-in-javascript.html )
     pt_partie_commune = pt_partie_commune.toFixed(1);
     pt_situation_familiale = pt_situation_familiale.toFixed(1);
-    pt_total_ACA = pt_total_ACA.toFixed(1);
-    pt_total_GEO = pt_total_GEO.toFixed(1);
-    pt_total_COM = pt_total_COM.toFixed(1);
-    pt_total_ETB = pt_total_ETB.toFixed(1);
+    pt_total_ACA_base = pt_total_ACA_base.toFixed(1);
+    pt_total_ACA_ttposte = pt_total_ACA_ttposte.toFixed(1);
+    pt_total_ACA_lycee = pt_total_ACA_lycee.toFixed(1);
+    pt_total_GEO_base = pt_total_GEO_base.toFixed(1);
+    pt_total_GEO_ttposte = pt_total_GEO_ttposte.toFixed(1);
+    pt_total_GEO_lycee = pt_total_GEO_lycee.toFixed(1);
+    pt_total_COM_base = pt_total_COM_base.toFixed(1);
+    pt_total_COM_ttposte = pt_total_COM_ttposte.toFixed(1);
+    pt_total_COM_lycee = pt_total_COM_lycee.toFixed(1);
+    pt_total_ETB_base = pt_total_ETB_base.toFixed(1);
+    pt_total_ETB_ttposte = pt_total_ETB_ttposte.toFixed(1);
+    pt_total_ETB_lycee = pt_total_ETB_lycee.toFixed(1);
+    pt_total_ETB_REP = pt_total_ETB_REP.toFixed(1);
     pt_total_ZRA = pt_total_ZRA.toFixed(1);
 
     //Affichage du r�sultat
-    document.getElementById("pt_total_ACA").innerHTML = pt_total_ACA + " pts";
-    document.getElementById("ct_total_ACA").innerHTML = ct_total_ACA ;
-    document.getElementById("pt_total_GEO").innerHTML = pt_total_GEO + " pts";
-    document.getElementById("ct_total_GEO").innerHTML = ct_total_GEO ;
-    document.getElementById("pt_total_COM").innerHTML = pt_total_COM + " pts";
-    document.getElementById("ct_total_COM").innerHTML = ct_total_COM ;
-    document.getElementById("pt_total_ETB").innerHTML = pt_total_ETB + " pts";
-    document.getElementById("ct_total_ETB").innerHTML = ct_total_ETB ;
+    document.getElementById("pt_total_ACA_base").innerHTML = pt_total_ACA_base + " pts";
+    document.getElementById("ct_total_ACA_base").innerHTML = ct_total_ACA_base ;
+    document.getElementById("pt_total_ACA_ttposte").innerHTML = pt_total_ACA_ttposte + " pts";
+    document.getElementById("ct_total_ACA_ttposte").innerHTML = ct_total_ACA_ttposte ;
+    document.getElementById("pt_total_ACA_lycee").innerHTML = pt_total_ACA_lycee + " pts";
+    document.getElementById("ct_total_ACA_lycee").innerHTML = ct_total_ACA_lycee ;
+    document.getElementById("pt_total_GEO_base").innerHTML = pt_total_GEO_base + " pts";
+    document.getElementById("ct_total_GEO_base").innerHTML = ct_total_GEO_base ;
+    document.getElementById("pt_total_GEO_ttposte").innerHTML = pt_total_GEO_ttposte + " pts";
+    document.getElementById("ct_total_GEO_ttposte").innerHTML = ct_total_GEO_ttposte ;
+    document.getElementById("pt_total_GEO_lycee").innerHTML = pt_total_GEO_lycee + " pts";
+    document.getElementById("ct_total_GEO_lycee").innerHTML = ct_total_GEO_lycee ;
+    document.getElementById("pt_total_COM_base").innerHTML = pt_total_COM_base + " pts";
+    document.getElementById("ct_total_COM_base").innerHTML = ct_total_COM_base ;
+    document.getElementById("pt_total_COM_ttposte").innerHTML = pt_total_COM_ttposte + " pts";
+    document.getElementById("ct_total_COM_ttposte").innerHTML = ct_total_COM_ttposte ;
+    document.getElementById("pt_total_COM_lycee").innerHTML = pt_total_COM_lycee + " pts";
+    document.getElementById("ct_total_COM_lycee").innerHTML = ct_total_COM_lycee ;
+    document.getElementById("pt_total_ETB_base").innerHTML = pt_total_ETB_base + " pts";
+    document.getElementById("ct_total_ETB_base").innerHTML = ct_total_ETB_base ;
+    document.getElementById("pt_total_ETB_ttposte").innerHTML = pt_total_ETB_ttposte + " pts";
+    document.getElementById("ct_total_ETB_ttposte").innerHTML = ct_total_ETB_ttposte ;
+    document.getElementById("pt_total_ETB_lycee").innerHTML = pt_total_ETB_lycee + " pts";
+    document.getElementById("ct_total_ETB_lycee").innerHTML = ct_total_ETB_lycee ;
+    document.getElementById("pt_total_ETB_REP").innerHTML = pt_total_ETB_REP + " pts";
+    document.getElementById("ct_total_ETB_REP").innerHTML = ct_total_ETB_REP ;
     document.getElementById("pt_total_ZRA").innerHTML = pt_total_ZRA + " pts";
     document.getElementById("ct_total_ZRA").innerHTML = ct_total_ZRA ;
 

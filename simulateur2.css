@@ -733,10 +733,10 @@ th, td, tr {
   padding: 10px;
 }
 
-.col2 {
+.col3 {
     font-weight: bold;
 }
 
-td[class="col3"]{
+td[class="col4"]{
    font-size: 0.7rem;
 }

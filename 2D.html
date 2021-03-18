@@ -43,7 +43,7 @@
 <br/>
 
 <div class="blocSelection" id="menu_anciennete_poste">
-   <label for="menu_anciennete_poste">Sélectionnez votre ancienneté</label>
+   <label for="menu_anciennete_poste">Sélectionnez votre ancienneté de poste</label>
    <div class="tooltip"><img src="infobulle.png" class="tooltipicon"><div class="tooltiptext">
         Votre ancienneté en années au 31/08/2020, dans le poste actuel ou dans le dernier occupé si disponibilité, congé, ATP, ou si vous êtes stagiaire précédemment titulaire d’un autre corps de personnel enseignant, d’éducation et d’orientation. 
    </div></div>
@@ -362,35 +362,95 @@
             <thead>
                <tr>
                   <th class="col1">Type de vœu</th>
-                  <th class="col2">Points</th>
-                  <th class="col3">Commentaires</th>
+                  <th class="col2">Spécificité du vœu</th>
+                  <th class="col3">Points</th>
+                  <th class="col4">Commentaires</th>
                </tr>
             </thead>
             <tbody>
                <tr>
                   <td class="col1">Vœu académique (ACA)</td>
-                  <td class="col2" id="pt_total_ACA"></td>
-                  <td class="col3" id="ct_total_ACA"></td>
+                  <td class="col2">Base</td>
+                  <td class="col3" id="pt_total_ACA_base"></td>
+                  <td class="col4" id="ct_total_ACA_base"></td>
+               </tr>
+               <tr>
+                  <td class="col1"></td>
+                  <td class="col2">Tout poste</td>
+                  <td class="col3" id="pt_total_ACA_ttposte"></td>
+                  <td class="col4" id="ct_total_ACA_ttposte"></td>
+               </tr>
+               <tr>
+                  <td class="col1"></td>
+                  <td class="col2">Lycée</td>
+                  <td class="col3" id="pt_total_ACA_lycee"></td>
+                  <td class="col4" id="ct_total_ACA_lycee"></td>
                </tr>
                <tr>
                   <td class="col1">Vœu gp arrondissements (GEO)</td>
-                  <td class="col2" id="pt_total_GEO"></td>
-                  <td class="col3" id="ct_total_GEO"></td>
+                  <td class="col2">Base</td>
+                  <td class="col3" id="pt_total_GEO_base"></td>
+                  <td class="col4" id="ct_total_GEO_base"></td>
+               </tr>
+               <tr>
+                  <td class="col1"></td>
+                  <td class="col2">Tout poste</td>
+                  <td class="col3" id="pt_total_GEO_ttposte"></td>
+                  <td class="col4" id="ct_total_GEO_ttposte"></td>
+               </tr>
+               <tr>
+                  <td class="col1"></td>
+                  <td class="col2">Lycée</td>
+                  <td class="col3" id="pt_total_GEO_lycee"></td>
+                  <td class="col4" id="ct_total_GEO_lycee"></td>
                </tr>
                <tr>
                   <td class="col1">Vœu arrondissement (COM)</td>
-                  <td class="col2" id="pt_total_COM"></td>
-                  <td class="col3" id="ct_total_COM"></td>
+                  <td class="col2">Base</td>
+                  <td class="col3" id="pt_total_COM_base"></td>
+                  <td class="col4" id="ct_total_COM_base"></td>
+               </tr>
+               <tr>
+                  <td class="col1"></td>
+                  <td class="col2">Tout poste</td>
+                  <td class="col3" id="pt_total_COM_ttposte"></td>
+                  <td class="col4" id="ct_total_COM_ttposte"></td>
+               </tr>
+               <tr>
+                  <td class="col1"></td>
+                  <td class="col2">Lycée</td>
+                  <td class="col3" id="pt_total_COM_lycee"></td>
+                  <td class="col4" id="ct_total_COM_lycee"></td>
                </tr>
                <tr>
                   <td class="col1">Vœu établissement (ETB)</td>
-                  <td class="col2" id="pt_total_ETB"></td>
-                  <td class="col3" id="ct_total_ETB"></td>
+                  <td class="col2">Base</td>
+                  <td class="col3" id="pt_total_ETB_base"></td>
+                  <td class="col4" id="ct_total_ETB_base"></td>
+               </tr>
+               <tr>
+                  <td class="col1"></td>
+                  <td class="col2">Tout poste</td>
+                  <td class="col3" id="pt_total_ETB_ttposte"></td>
+                  <td class="col4" id="ct_total_ETB_ttposte"></td>
+               </tr>
+               <tr>
+                  <td class="col1"></td>
+                  <td class="col2">Lycée</td>
+                  <td class="col3" id="pt_total_ETB_lycee"></td>
+                  <td class="col4" id="ct_total_ETB_lycee"></td>
+               </tr>
+               <tr>
+                  <td class="col1"></td>
+                  <td class="col2">REP</td>
+                  <td class="col3" id="pt_total_ETB_REP"></td>
+                  <td class="col4" id="ct_total_ETB_REP"></td>
                </tr>
                <tr>
                   <td class="col1">Vœu ZR (ZRA)</td>
-                  <td class="col2" id="pt_total_ZRA"></td>
-                  <td class="col3" id="ct_total_ZRA"></td>
+                  <td class="col2"></td>
+                  <td class="col3" id="pt_total_ZRA"></td>
+                  <td class="col4" id="ct_total_ZRA"></td>
                </tr>
             </tbody>
          </table>
